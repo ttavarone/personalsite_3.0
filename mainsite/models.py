@@ -41,9 +41,12 @@ class SocialMedia(models.Model):
     class Meta:
         verbose_name_plural = "social media"
 
-class Accomplishments(models.Model):
+class Accomplishment(models.Model):
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     accomplishment_name = models.CharField(max_length=64, default="No Name")
     accomplishment_description = models.TextField(default="No description.")
     ranking = models.IntegerField(default=1)
     show = models.BooleanField(default=False)
+
+    class Meta:
+        verbose_name_plural = "accomplishments"

@@ -35,7 +35,7 @@ class SocialMediaAdmin(admin.ModelAdmin):
     list_filter = ['site_name','site_url','user','show']
     search_fields = ['site_name','site_url','user']
 
-class AccomplishmentsAdmin(admin.ModelAdmin):
+class AccomplishmentAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Accomplishments Info',{'fields':['accomplishment_name','accomplishment_description','ranking','show']}),
         ('Users',{'fields':['user']})
@@ -47,4 +47,4 @@ class AccomplishmentsAdmin(admin.ModelAdmin):
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Skills, SkillsAdmin)
 admin.site.register(SocialMedia, SocialMediaAdmin)
-admin.site.register(Accomplishments, AccomplishmentsAdmin)
+admin.site.register(Accomplishment, AccomplishmentAdmin)
