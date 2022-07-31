@@ -10,6 +10,7 @@ class ProfileAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Name', {'fields':['first_name','last_name','active']}),
         ('Contact Info', {'fields':['email_address','phone_number',]}),
+        ('Alternate Contact Info',{'fields':['alternate_email','alternate_phone','show_alternate_contact']}),
         ('Biography',{'fields':['biography']}),
         ('Profile Updates',{'fields':['last_update']})
     ]
@@ -40,8 +41,8 @@ class AccomplishmentAdmin(admin.ModelAdmin):
         ('Accomplishments Info',{'fields':['accomplishment_name','accomplishment_description','ranking','show']}),
         ('Users',{'fields':['user']})
     ]
-    list_display = ('accomplishment_name','accomplishment_description','ranking','show','user')
-    list_filter = ['accomplishment_name','accomplishment_description','ranking','show','user']
+    list_display = ('accomplishment_name','ranking','show','user')
+    list_filter = ['accomplishment_name','ranking','show','user']
     search_fields = ['accomplishment_name','accomplishment_description','user']
 
 admin.site.register(Profile, ProfileAdmin)

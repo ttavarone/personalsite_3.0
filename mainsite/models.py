@@ -12,6 +12,9 @@ class Profile(models.Model):
     biography = models.TextField(default="No Bio")
     last_update = models.DateTimeField('Last info update')
     active = models.BooleanField(default=False)
+    alternate_email = models.EmailField(default="email@email.com")
+    alternate_phone = models.CharField(max_length=13,default="0000000000000")
+    show_alternate_contact = models.BooleanField(default=False)
 
     def __str__(self):
         return self.first_name+" "+self.last_name
@@ -47,6 +50,9 @@ class Accomplishment(models.Model):
     accomplishment_description = models.TextField(default="No description.")
     ranking = models.IntegerField(default=1)
     show = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.accomplishment_name
 
     class Meta:
         verbose_name_plural = "accomplishments"

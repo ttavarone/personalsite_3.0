@@ -8,4 +8,4 @@ class IndexView(generic.ListView):
     context_object_name = 'profile'
 
     def get_queryset(self):
-        return Profile.objects.all()
+        return Profile.objects.filter(first_name='Tucker')

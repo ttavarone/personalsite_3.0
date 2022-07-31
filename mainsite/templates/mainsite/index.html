@@ -4,6 +4,7 @@
 <body class="is-preload">
 
     <!-- Header -->
+    {% if profile %}
         <section id="header">
             <header>
                 <span class="image avatar"><img src="images/headshot.jpg" alt="photo of me" id="photoOfMe"/></span>
@@ -11,25 +12,6 @@
                 <p>Web developer/Python programmer<br />
                  looking for a job...</p>
             </header>
-            <nav id="nav">
-                <ul>
-                    <li><a href="#about" class="active">About</a></li>
-                    <li><a href="#myskills">My Skills</a></li>
-                    <li><a href="#accomplishments">A Few Accomplishments</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <footer>
-                <ul class="icons">
-                    <!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
-                    <!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
-                    <!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
-                    <li><a href="https://www.linkedin.com/in/ttavarone" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-                    <li><a href="https://www.github.com/ttavarone" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
-                    <li><a href="mailto:ttavarone@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-                    <li><a href="tel:3478217402" class="icon solid fa-mobile-alt"><span class="label">Email</span></a></li>
-                </ul>
-            </footer>
         </section>
 
     <!-- Wrapper -->
@@ -48,7 +30,7 @@
                                     <h2>About Me</h2>
                                     <p>I love to write code, make websites, and explain how it all works.</p>
                                 </header>
-                                <p>I am a programmer in any way you define it.  I have experience with many programming languages for many different purposes - Python, Java, Javascript, PHP - to name a few.  I also have computer skills for a lot of uses.  I deployed my own server using AWS (formerly to host this website), I have used Python to analyze datasets, and amongst other things I know the ins and outs of a UNIX CLI. See below for more details.</p>
+                                <p>{{ profile.biography }}</p>
                             </div>
                         </section>
 
@@ -56,7 +38,7 @@
                         <section id="myskills">
                             <div class="container">
                                 <h3>My Skills</h3>
-                                <p>These are the skills I have honed over the years and the ones I find most applicable to my interests.</p>
+                                <p></p>
                                 <ul class="feature-icons">
                                     <li class="icon solid fa-laptop">Javascript, Node.js, Angular.js</li>
                                     <li class="icon solid fa-desktop">Python, Java, PHP</li>
@@ -100,7 +82,7 @@
                         </section>
 
                     <!-- Four -->
-                        <section id="contact">
+                        <!-- <section id="contact">
                             <div class="container">
                                 <h3>Contact Me</h3>
                                 <p>If you have questions, requests, or you want to talk to me about a job then you can leave a message here.  I will usually respond by email within 24-48 hours.</p>
@@ -112,8 +94,8 @@
                                         <div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
                                         <div class="col-12">
                                             <ul class="actions">
-                                                <!-- <li><input class="primary g-recaptcha" type="submit" value="Send Message" id="captchaForm"
-                                                data-sitekey="6LdbaqoaAAAAAPX_SV47e_5F5mjiWgklCEg91-Mk" data-callback='onSubmit' data-action='submit'/></li> -->
+                                                <li><input class="primary g-recaptcha" type="submit" value="Send Message" id="captchaForm"
+                                                data-sitekey="6LdbaqoaAAAAAPX_SV47e_5F5mjiWgklCEg91-Mk" data-callback='onSubmit' data-action='submit'/></li>
                                                 <li><input class="primary" type="submit" value="Send Message"/></li>
                                                 <li><input type="reset" value="Reset Form" /></li>
                                             </ul>
@@ -121,6 +103,9 @@
                                     </div>
                                 </form>
                             </div>
-                        </section>
+                        </section> -->
                 </div>
+                {% else %}
+                <h1>No Profile Found! How Bizarre...</h1>
+                {% endif %}
 {% endblock content %}
