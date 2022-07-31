@@ -1,0 +1,126 @@
+{% extends "mainsite/base.html" %}
+
+{% block content %}
+<body class="is-preload">
+
+    <!-- Header -->
+        <section id="header">
+            <header>
+                <span class="image avatar"><img src="images/headshot.jpg" alt="photo of me" id="photoOfMe"/></span>
+                <h1 id="logo"><a href="#">Tucker Tavarone</a></h1>
+                <p>Web developer/Python programmer<br />
+                 looking for a job...</p>
+            </header>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#myskills">My Skills</a></li>
+                    <li><a href="#accomplishments">A Few Accomplishments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <footer>
+                <ul class="icons">
+                    <!-- <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li> -->
+                    <!-- <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li> -->
+                    <!-- <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li> -->
+                    <li><a href="https://www.linkedin.com/in/ttavarone" target="_blank" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                    <li><a href="https://www.github.com/ttavarone" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+                    <li><a href="mailto:ttavarone@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+                    <li><a href="tel:3478217402" class="icon solid fa-mobile-alt"><span class="label">Email</span></a></li>
+                </ul>
+            </footer>
+        </section>
+
+    <!-- Wrapper -->
+        <div id="wrapper">
+
+            <!-- Main -->
+                <div id="main">
+
+                    <!-- One -->
+                        <section id="about">
+                            <div class="image main" data-position="center">
+                                <img src="images/nyc.JPG" alt="" />
+                            </div>
+                            <div class="container">
+                                <header class="major">
+                                    <h2>About Me</h2>
+                                    <p>I love to write code, make websites, and explain how it all works.</p>
+                                </header>
+                                <p>I am a programmer in any way you define it.  I have experience with many programming languages for many different purposes - Python, Java, Javascript, PHP - to name a few.  I also have computer skills for a lot of uses.  I deployed my own server using AWS (formerly to host this website), I have used Python to analyze datasets, and amongst other things I know the ins and outs of a UNIX CLI. See below for more details.</p>
+                            </div>
+                        </section>
+
+                    <!-- Two -->
+                        <section id="myskills">
+                            <div class="container">
+                                <h3>My Skills</h3>
+                                <p>These are the skills I have honed over the years and the ones I find most applicable to my interests.</p>
+                                <ul class="feature-icons">
+                                    <li class="icon solid fa-laptop">Javascript, Node.js, Angular.js</li>
+                                    <li class="icon solid fa-desktop">Python, Java, PHP</li>
+                                    <li class="icon solid fa-code">HTML5, CSS3</li>
+                                    <li class="icon solid fa-cloud">AWS, Google Cloud</li>
+                                    <li class="icon solid fa-code-branch">Git version control</li>
+                                    <li class="icon solid fa-terminal">UNIX CLI</li>
+                                </ul>
+                            </div>
+                        </section>
+
+                    <!-- Three -->
+                        <section id="accomplishments">
+                            <div class="container">
+                                <h3>A Few Accomplishments</h3>
+                                <p>Check out what I can and have done here.  If you are more curious, click the photo for a link to Github or scroll to the bottom and send me a message.</p>
+                                <div class="features">
+                                    <article>
+                                        <a href="tuckertavarone.com" class="image"><img src="images/website.png" alt="" /></a>
+                                        <div class="inner">
+                                            <h4>Created this website!</h4>
+                                            <p>It is a static webpage from a HTML template that I modified heavily. The backend is Python and frontend is vanilla Javascript.  It is all running on an Apache web server on an AWS EC2 instance.</p>
+                                        </div>
+                                    </article>
+                                    <article>
+                                        <a href="https://github.com/ttavarone/python-projects" target="_blank" class="image"><img src="images/python.png" alt="python logo" /></a>
+                                        <div class="inner">
+                                            <h4>Python Projects</h4>
+                                            <p>One project creates a mass emailing list, another one gets the next scheduled train arrival for the NYC MTA Subway, my favorite one texts me the weather in the morning using Twilio.</p>
+                                        </div>
+                                    </article>
+                                    <!-- <article>
+                                        <a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
+                                        <div class="inner">
+                                            <h4>Snapped dark matter in the wild</h4>
+                                            <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
+                                        </div>
+                                    </article> -->
+                                </div>
+                            </div>
+                        </section>
+
+                    <!-- Four -->
+                        <section id="contact">
+                            <div class="container">
+                                <h3>Contact Me</h3>
+                                <p>If you have questions, requests, or you want to talk to me about a job then you can leave a message here.  I will usually respond by email within 24-48 hours.</p>
+                                <form method="POST" action="sendMessage.php">
+                                    <div class="row gtr-uniform">
+                                        <div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name*" required/></div>
+                                        <div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email*" required/></div>
+                                        <div class="col-12"><input type="text" name="subject" id="subject" placeholder="Subject" /></div>
+                                        <div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="6"></textarea></div>
+                                        <div class="col-12">
+                                            <ul class="actions">
+                                                <!-- <li><input class="primary g-recaptcha" type="submit" value="Send Message" id="captchaForm"
+                                                data-sitekey="6LdbaqoaAAAAAPX_SV47e_5F5mjiWgklCEg91-Mk" data-callback='onSubmit' data-action='submit'/></li> -->
+                                                <li><input class="primary" type="submit" value="Send Message"/></li>
+                                                <li><input type="reset" value="Reset Form" /></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                </div>
+{% endblock content %}
