@@ -1,3 +1,4 @@
+{% load sass_tags %}
 {% load static %}
 <!doctype html>
 <html lang="en">
@@ -6,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1 user-scalable=no">
     <title>Tucker Tavarone</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="{% static 'howToRideApp/style.css' %}">
+    <link href="{% sass_src 'mainsite/style.scss' %}" rel="stylesheet" type="text/css" />
+    <script src="https://kit.fontawesome.com/9642fd0433.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'mainsite/css/main.css' %}" />
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161445888-1"></script>
 		<script>
 		  window.dataLayer = window.dataLayer || [];
@@ -15,14 +18,6 @@
 		  gtag('config', 'UA-161445888-1');
 		</script>
   </head>
-  <nav id="nav">
-    <ul>
-        <li><a href="#about" class="active">About</a></li>
-        <li><a href="#myskills">My Skills</a></li>
-        <li><a href="#accomplishments">A Few Accomplishments</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
   <body class="container">
     {% block content %}
     {% endblock %}
@@ -41,7 +36,7 @@
       {% if profile %}
         {% if social_media_list %}
         {% for social_media in social_media_list %}
-          <li><a href="{{social_media.site_url}}">{{social_media.site_name}}</a></li>
+          <li><a href="{{social_media.site_url}}" target="_blank" class="icon brands fa-github">{{social_media.site_name}}</a></li>
         {% endfor %}
         {% else %}
         <h4>No social media found.</h4>
@@ -58,5 +53,12 @@
       </div>
     </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="{% static 'mainsite/js/jquery.min.js' %}"></script>
+    <script src="{% static 'mainsite/js/jquery.scrollex.min.js' %}"></script>
+    <script src="{% static 'mainsite/js/jquery.scrolly.min.js' %}"></script>
+    <script src="{% static 'mainsite/js/browser.min.js' %}"></script>
+    <script src="{% static 'mainsite/js/breakpoints.min.js' %}"></script>
+    <script src="{% static 'mainsite//js/util.js' %}"></script>
+    <script src="{% static 'mainsite/js/main.js' %}"></script>
   </body>
 </html>

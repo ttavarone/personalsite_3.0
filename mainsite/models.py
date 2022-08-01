@@ -1,4 +1,3 @@
-from tabnanny import verbose
 from unicodedata import name
 from django.db import models
 
@@ -15,6 +14,8 @@ class Profile(models.Model):
     alternate_email = models.EmailField(default="email@email.com")
     alternate_phone = models.CharField(max_length=13,default="0000000000000")
     show_alternate_contact = models.BooleanField(default=False)
+    image_dir = models.FilePathField(path="mainsite/static/mainsite/images/")
+    # profile_image = models.ImageField(upload_to="static/mainsite/images/")
 
     def __str__(self):
         return self.first_name+" "+self.last_name
@@ -24,6 +25,7 @@ class Skills(models.Model):
     skill_name = models.CharField(max_length=64, default="skillname")
     skill_level = models.IntegerField(default=1)
     show = models.BooleanField(default=False)
+    skill_icon_name = models.CharField(max_length=32,default="fa-code")
 
     def __str__(self):
         return self.skill_name
@@ -50,6 +52,8 @@ class Accomplishment(models.Model):
     accomplishment_description = models.TextField(default="No description.")
     ranking = models.IntegerField(default=1)
     show = models.BooleanField(default=False)
+    image_dir = models.FilePathField(path="mainsite/static/mainsite/images/")
+    # image = models.ImageField(upload_to="static/mainsite/images/")
 
     def __str__(self):
         return self.accomplishment_name

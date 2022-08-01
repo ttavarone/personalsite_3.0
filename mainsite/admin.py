@@ -12,6 +12,7 @@ class ProfileAdmin(admin.ModelAdmin):
         ('Contact Info', {'fields':['email_address','phone_number',]}),
         ('Alternate Contact Info',{'fields':['alternate_email','alternate_phone','show_alternate_contact']}),
         ('Biography',{'fields':['biography']}),
+        ('Photos',{'fields':['image_dir']}),
         ('Profile Updates',{'fields':['last_update']})
     ]
     list_display = ('first_name','last_name','email_address','phone_number','last_update','active')
@@ -21,6 +22,7 @@ class ProfileAdmin(admin.ModelAdmin):
 class SkillsAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Skill Info',{'fields':['skill_name','skill_level','show']}),
+        ('Meta',{'fields':['skill_icon_name']}),
         ('Users',{'fields':['user']})
     ]
     list_display = ('skill_name','skill_level','user','show')
@@ -39,6 +41,7 @@ class SocialMediaAdmin(admin.ModelAdmin):
 class AccomplishmentAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Accomplishments Info',{'fields':['accomplishment_name','accomplishment_description','ranking','show']}),
+        ('Photos',{'fields':['image_dir']}),
         ('Users',{'fields':['user']})
     ]
     list_display = ('accomplishment_name','ranking','show','user')

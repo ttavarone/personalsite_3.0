@@ -1,4 +1,5 @@
 {% extends "mainsite/base.html" %}
+{% load static %}
 
 {% block content %}
 <body class="is-preload">
@@ -7,11 +8,19 @@
     {% if profile %}
         <section id="header">
             <header>
-                <span class="image avatar"><img src="images/headshot.jpg" alt="photo of me" id="photoOfMe"/></span>
+                <span class="image avatar"><img src="{% static '/mainsite/images/headshot.jpg' %}" alt="photo of me" id="photoOfMe"/></span>
                 <h1 id="logo"><a href="#">Tucker Tavarone</a></h1>
                 <p>Web developer/Python programmer<br />
                  looking for a job...</p>
             </header>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#about" class="active">About</a></li>
+                    <li><a href="#myskills">My Skills</a></li>
+                    <li><a href="#accomplishments">A Few Accomplishments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
         </section>
 
     <!-- Wrapper -->
@@ -23,12 +32,12 @@
                     <!-- One -->
                         <section id="about">
                             <div class="image main" data-position="center">
-                                <img src="images/nyc.JPG" alt="" />
+                                <img src="{% static '/mainsite/images/nyc.JPG' %}" alt="phone of nyc" />
                             </div>
                             <div class="container">
                                 <header class="major">
                                     <h2>About Me</h2>
-                                    <p>I love to write code, make websites, and explain how it all works.</p>
+                                    <p>I love to write code, make web apps, and explain how it all works.</p>
                                 </header>
                                 <p>{{ profile.biography }}</p>
                             </div>
@@ -38,19 +47,12 @@
                         <section id="myskills">
                             <div class="container">
                                 <h3>My Skills</h3>
-                                <!-- <p></p>
-                                <ul class="feature-icons">
-                                    <li class="icon solid fa-laptop">Javascript, Node.js, Angular.js</li>
-                                    <li class="icon solid fa-desktop">Python, Java, PHP</li>
-                                    <li class="icon solid fa-code">HTML5, CSS3</li>
-                                    <li class="icon solid fa-cloud">AWS, Google Cloud</li>
-                                    <li class="icon solid fa-code-branch">Git version control</li>
-                                    <li class="icon solid fa-terminal">UNIX CLI</li>
-                                </ul> -->
                                 {% if skills_list %}
+                                <ul class="feature-icons">
                                 {% for skill in skills_list %}
-                                    <li>{{skill.skill_name}}</li>
+                                   <li class="icon solid {{skill.skill_icon_name}}">{{skill.skill_name}}</li>
                                 {% endfor %}
+                                </ul>
                                 {% else %}
                                 <h4>No skills to show.</h4>
                                 {% endif %}
@@ -66,7 +68,7 @@
                                     {% if accomplishments_list %}
                                     {% for accomplishment in accomplishments_list %}
                                     <article>
-                                        <!-- <a href="tuckertavarone.com" class="image"><img src="images/website.png" alt="" /></a> -->
+                                        <a href="tuckertavarone.com" class="image"><img src="{% static '/mainsite/images/website.png' %}" alt="" /></a>
                                         <div class="inner">
                                             <h4>{{ accomplishment.accomplishment_name }}</h4>
                                             <p>{{ accomplishment.accomplishment_description }}</p>
@@ -76,27 +78,6 @@
                                     {% else %}
                                     <h4>No accomplishments to show.</h4>
                                     {% endif %}
-                                    <!-- <article>
-                                        <a href="tuckertavarone.com" class="image"><img src="images/website.png" alt="" /></a>
-                                        <div class="inner">
-                                            <h4>Created this website!</h4>
-                                            <p>It is a static webpage from a HTML template that I modified heavily. The backend is Python and frontend is vanilla Javascript.  It is all running on an Apache web server on an AWS EC2 instance.</p>
-                                        </div>
-                                    </article>
-                                    <article>
-                                        <a href="https://github.com/ttavarone/python-projects" target="_blank" class="image"><img src="images/python.png" alt="python logo" /></a>
-                                        <div class="inner">
-                                            <h4>Python Projects</h4>
-                                            <p>One project creates a mass emailing list, another one gets the next scheduled train arrival for the NYC MTA Subway, my favorite one texts me the weather in the morning using Twilio.</p>
-                                        </div>
-                                    </article> -->
-                                    <!-- <article>
-                                        <a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
-                                        <div class="inner">
-                                            <h4>Snapped dark matter in the wild</h4>
-                                            <p>Integer eu ante ornare amet commetus vestibulum blandit integer in curae ac faucibus integer adipiscing ornare amet.</p>
-                                        </div>
-                                    </article> -->
                                 </div>
                             </div>
                         </section>
