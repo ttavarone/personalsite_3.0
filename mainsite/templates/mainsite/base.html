@@ -26,7 +26,7 @@
   <body class="container">
     {% block content %}
     {% endblock %}
-    <footer>
+    <!-- <footer>
       <ul class="icons">
           <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
           <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
@@ -36,6 +36,19 @@
           <li><a href="mailto:ttavarone@gmail.com" target="_blank" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
           <li><a href="tel:3478217402" class="icon solid fa-mobile-alt"><span class="label">Email</span></a></li>
       </ul>
+    </footer> -->
+    <footer>
+      {% if profile %}
+        {% if social_media_list %}
+        {% for social_media in social_media_list %}
+          <li><a href="{{social_media.site_url}}">{{social_media.site_name}}</a></li>
+        {% endfor %}
+        {% else %}
+        <h4>No social media found.</h4>
+        {% endif %}
+      {% else %}
+      <p>No profile</p>
+      {% endif %}
     </footer>
     <section id="footer">
       <div class="container">

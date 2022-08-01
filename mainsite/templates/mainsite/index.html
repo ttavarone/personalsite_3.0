@@ -38,7 +38,7 @@
                         <section id="myskills">
                             <div class="container">
                                 <h3>My Skills</h3>
-                                <p></p>
+                                <!-- <p></p>
                                 <ul class="feature-icons">
                                     <li class="icon solid fa-laptop">Javascript, Node.js, Angular.js</li>
                                     <li class="icon solid fa-desktop">Python, Java, PHP</li>
@@ -46,7 +46,14 @@
                                     <li class="icon solid fa-cloud">AWS, Google Cloud</li>
                                     <li class="icon solid fa-code-branch">Git version control</li>
                                     <li class="icon solid fa-terminal">UNIX CLI</li>
-                                </ul>
+                                </ul> -->
+                                {% if skills_list %}
+                                {% for skill in skills_list %}
+                                    <li>{{skill.skill_name}}</li>
+                                {% endfor %}
+                                {% else %}
+                                <h4>No skills to show.</h4>
+                                {% endif %}
                             </div>
                         </section>
 
@@ -56,7 +63,20 @@
                                 <h3>A Few Accomplishments</h3>
                                 <p>Check out what I can and have done here.  If you are more curious, click the photo for a link to Github or scroll to the bottom and send me a message.</p>
                                 <div class="features">
+                                    {% if accomplishments_list %}
+                                    {% for accomplishment in accomplishments_list %}
                                     <article>
+                                        <!-- <a href="tuckertavarone.com" class="image"><img src="images/website.png" alt="" /></a> -->
+                                        <div class="inner">
+                                            <h4>{{ accomplishment.accomplishment_name }}</h4>
+                                            <p>{{ accomplishment.accomplishment_description }}</p>
+                                        </div>
+                                    </article>
+                                    {% endfor %}
+                                    {% else %}
+                                    <h4>No accomplishments to show.</h4>
+                                    {% endif %}
+                                    <!-- <article>
                                         <a href="tuckertavarone.com" class="image"><img src="images/website.png" alt="" /></a>
                                         <div class="inner">
                                             <h4>Created this website!</h4>
@@ -69,7 +89,7 @@
                                             <h4>Python Projects</h4>
                                             <p>One project creates a mass emailing list, another one gets the next scheduled train arrival for the NYC MTA Subway, my favorite one texts me the weather in the morning using Twilio.</p>
                                         </div>
-                                    </article>
+                                    </article> -->
                                     <!-- <article>
                                         <a href="#" class="image"><img src="images/pic03.jpg" alt="" /></a>
                                         <div class="inner">
