@@ -14,8 +14,8 @@ from .models import Profile, Skills, SocialMedia, Accomplishment
 '''Render views'''
 def index(request):
     profile = get_object_or_404(Profile, pk=1)
-    skills_list = Skills.objects.filter(user=profile).order_by('-skill_level')
-    accomplishments_list = Accomplishment.objects.filter(user=profile).order_by('ranking')[:2]
+    skills_list = Skills.objects.filter(user=profile,show=True).order_by('-skill_level')
+    accomplishments_list = Accomplishment.objects.filter(user=profile,show=True).order_by('ranking')
     social_media_list = SocialMedia.objects.filter(user=profile)
     context = {
         'profile':profile,
