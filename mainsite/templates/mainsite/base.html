@@ -10,12 +10,16 @@
     <link href="{% sass_src 'mainsite/sass/main.scss' %}" rel="stylesheet" type="text/css" />
     <script src="https://kit.fontawesome.com/9642fd0433.js" crossorigin="anonymous"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161445888-1"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
-		  gtag('config', 'UA-161445888-1');
-		</script>
+  </style>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161445888-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-161445888-1');
+  </script>
   </head>
   <body class="container">
     {% block content %}
