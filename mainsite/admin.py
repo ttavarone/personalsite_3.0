@@ -4,7 +4,7 @@ from .models import *
 
 #Development admin site variables
 admin.site.site_header = "Personal Site Administration"
-admin.site.site_url = "http://127.0.0.1:8000/mainsite/"
+admin.site.site_url = "http://127.0.0.1:8000/"
 
 class ProfileAdmin(admin.ModelAdmin):
     fieldsets = [
