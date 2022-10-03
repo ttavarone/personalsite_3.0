@@ -13,7 +13,8 @@ from .models import Profile, Skills, SocialMedia, Accomplishment
 
 '''Render views'''
 def index(request):
-    profile = get_object_or_404(Profile, pk=1)
+    profile_query = Profile.objects.filter(active='True')
+    profile = get_object_or_404(profile_query)
     skills_list = Skills.objects.filter(user=profile,show=True).order_by('-skill_level')
     accomplishments_list = Accomplishment.objects.filter(user=profile,show=True).order_by('ranking')
     social_media_list = SocialMedia.objects.filter(user=profile)
