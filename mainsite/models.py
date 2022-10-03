@@ -1,8 +1,6 @@
 from unicodedata import name
 from django.db import models
 
-from relativefilepathfield.fields import RelativeFilePathField
-
 # Create your models here.
 class Profile(models.Model):
     first_name = models.CharField(max_length=32, default="firstname")
@@ -16,8 +14,11 @@ class Profile(models.Model):
     alternate_email = models.EmailField(default="email@email.com")
     alternate_phone = models.CharField(max_length=13,default="0000000000000")
     show_alternate_contact = models.BooleanField(default=False)
-    image_dir = models.RelativeFilePathField(path="mainsite/static/mainsite/images/")
+    image_dir = models.FilePathField(path="mainsite/static/mainsite/images/")
     # profile_image = models.ImageField(upload_to="static/mainsite/images/")
+
+    def get_absolute_url(self):
+        return reverse('model-detail-view', args=[str(self.id)])
 
     def __str__(self):
         return self.first_name+" "+self.last_name
