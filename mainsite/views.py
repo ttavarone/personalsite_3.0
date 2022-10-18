@@ -39,7 +39,3 @@ def send_message(request):
     else:
         print("No post")
     return HttpResponseRedirect(reverse('mainsite:index'))
-
-def messages(request):
-    messages_list = Message.objects.all().order_by('-date_received')
-    return render(request, 'mainsite/messages.html',{'messages_list':messages_list})

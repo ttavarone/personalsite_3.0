@@ -26,7 +26,7 @@
             {% if profile %}
                 {% if social_media_list %}
                 {% for social_media in social_media_list %}
-                <li><a href="{{social_media.site_url}}" target="_blank" class="icon brands fa-github">{{social_media.site_name}}</a></li>
+                <li><a href="{{social_media.site_url}}" target="_blank" class="icon brands fa-{{social_media.site_name}}"></a></li>
                 {% endfor %}
                 {% else %}
                 <h4>No social media found.</h4>

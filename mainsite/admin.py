@@ -50,12 +50,25 @@ class AccomplishmentAdmin(admin.ModelAdmin):
 
 class MessageAdmin(admin.ModelAdmin):
     fieldsets = [
-        ('Message Information',{'fields':['name','email','date_received']}),
-        ('Message Content',{'fields':['message']})
+        ('Message',{'fields':['name','email','date_received','message']}),
     ]
     list_display = ('name','email','message','date_received')
     list_filter = ['name','email','date_received']
     search_fields = ['name','email','date_received']
+
+    def get_readonly_fields(self, request, obj=None):
+        if obj: # editing an existing object
+            return self.readonly_fields + ('name', 'email','date_received','message')
+        return self.readonly_fields
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def changeform_view(self, request, object_id=None, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['show_save_and_continue'] = False
+        extra_context['show_save'] = False
+        return super(MessageAdmin, self).changeform_view(request, object_id, extra_context=extra_context)
 
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Skills, SkillsAdmin)
