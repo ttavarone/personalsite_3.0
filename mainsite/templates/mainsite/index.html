@@ -42,7 +42,7 @@
 						<div class="row">
 						{% for accomplishment in accomplishments_list %}
 							<article class="col-6 col-12-xsmall work-item">
-								<a href="{{accomplishment.image_dir}}" class="image fit thumb"><img src="{{accomplishment.image_dir}}" alt="" /></a>
+								<a href="static/mainsite/images/{{accomplishment.imageName}}" class="image fit thumb"><img src="static/mainsite/images/{{accomplishment.imageName}}" alt="photo of {{ accomplishment.accomplishment_name }}" /></a>
 								<h3>{{ accomplishment.accomplishment_name }}</h3>
 								<p>{{ accomplishment.accomplishment_description }}</p>
 							</article>

@@ -1,3 +1,4 @@
+import os
 from unicodedata import name
 from django.db import models
 from django.utils import timezone
@@ -62,8 +63,8 @@ class Accomplishment(models.Model):
     def __str__(self):
         return self.accomplishment_name
 
-    def returnFileName(self):
-        self.image_dir
+    def imageName(self):
+        return os.path.basename(self.image_dir)
 
     class Meta:
         verbose_name_plural = "accomplishments"
