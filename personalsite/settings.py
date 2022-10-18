@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'django_sass'
 ]
 
+#https://github.com/coderedcorp/django-sass
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

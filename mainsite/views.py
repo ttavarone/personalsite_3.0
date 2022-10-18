@@ -1,7 +1,10 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render
+from django.urls import reverse
+from django.utils import timezone
 #from django.views import generic
 
-from .models import Profile, Skills, SocialMedia, Accomplishment
+from .models import Profile, Skills, SocialMedia, Accomplishment, Message
 
 '''Generic views below, not used in this project'''
 # class IndexView(generic.ListView):
@@ -25,3 +28,18 @@ def index(request):
         'social_media_list':social_media_list
     }
     return render(request,'mainsite/index.html',context)
+
+def send_message(request):
+    if request.method == "POST":
+        name = request.POST['name']
+        email = request.POST['email']
+        message = request.POST['message']
+        messageObj = Message.objects.create(name=name, email=email, message=message,date_received=timezone.now())
+        print(messageObj)
+    else:
+        print("No post")
+    return HttpResponseRedirect(reverse('mainsite:index'))
+
+def messages(request):
+    messages_list = Message.objects.all().order_by('-date_received')
+    return render(request, 'mainsite/messages.html',{'messages_list':messages_list})

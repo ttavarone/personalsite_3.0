@@ -1,5 +1,6 @@
 from unicodedata import name
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 class Profile(models.Model):
@@ -17,8 +18,8 @@ class Profile(models.Model):
     image_dir = models.FilePathField(path="mainsite/static/mainsite/images/")
     # profile_image = models.ImageField(upload_to="static/mainsite/images/")
 
-    def get_absolute_url(self):
-        return reverse('model-detail-view', args=[str(self.id)])
+    # def get_absolute_url(self):
+    #     return reverse('model-detail-view', args=[str(self.id)])
 
     def __str__(self):
         return self.first_name+" "+self.last_name
@@ -66,3 +67,12 @@ class Accomplishment(models.Model):
 
     class Meta:
         verbose_name_plural = "accomplishments"
+
+class Message(models.Model):
+    name = models.CharField(max_length = 128, default="")
+    email = models.EmailField(default="unknown@email.com")
+    message = models.TextField(default="Message body")
+    date_received = models.DateTimeField('Date message received')
+
+    def __str__(self):
+        return self.name

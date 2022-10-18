@@ -48,7 +48,17 @@ class AccomplishmentAdmin(admin.ModelAdmin):
     list_filter = ['accomplishment_name','ranking','show','user']
     search_fields = ['accomplishment_name','accomplishment_description','user']
 
+class MessageAdmin(admin.ModelAdmin):
+    fieldsets = [
+        ('Message Information',{'fields':['name','email','date_received']}),
+        ('Message Content',{'fields':['message']})
+    ]
+    list_display = ('name','email','message','date_received')
+    list_filter = ['name','email','date_received']
+    search_fields = ['name','email','date_received']
+
 admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Skills, SkillsAdmin)
 admin.site.register(SocialMedia, SocialMediaAdmin)
 admin.site.register(Accomplishment, AccomplishmentAdmin)
+admin.site.register(Message,MessageAdmin)
